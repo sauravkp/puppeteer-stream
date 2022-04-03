@@ -68,7 +68,7 @@ export async function launch(
 	if (!loadExtensionExcept) opts.args.push("--disable-extensions-except=" + extensionPath);
 	if (!whitelisted) opts.args.push("--whitelisted-extension-id=" + extensionId);
 	if (opts.defaultViewport?.width && opts.defaultViewport?.height)
-		opts.args.push(`--window-size=${opts.defaultViewport?.width}x${opts.defaultViewport?.height}`);
+		opts.args.push(`--window-size=${opts.defaultViewport?.width},${opts.defaultViewport?.height}`);
 
 	if(!opts.headless) opts.headless = true;
 
