@@ -70,7 +70,7 @@ export async function launch(
 	if (opts.defaultViewport?.width && opts.defaultViewport?.height)
 		opts.args.push(`--window-size=${opts.defaultViewport?.width}x${opts.defaultViewport?.height}`);
 
-	opts.headless = false;
+	if(!opts.headless) opts.headless = true;
 
 	const browser: Browser = await puppeteer.launch(opts);
 	// @ts-ignore
