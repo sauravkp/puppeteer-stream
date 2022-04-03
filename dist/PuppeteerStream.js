@@ -73,8 +73,8 @@ function launch(opts) {
         if (!whitelisted)
             opts.args.push("--whitelisted-extension-id=" + extensionId);
         if (((_a = opts.defaultViewport) === null || _a === void 0 ? void 0 : _a.width) && ((_b = opts.defaultViewport) === null || _b === void 0 ? void 0 : _b.height))
-            opts.args.push(`--window-size=${(_c = opts.defaultViewport) === null || _c === void 0 ? void 0 : _c.width}x${(_d = opts.defaultViewport) === null || _d === void 0 ? void 0 : _d.height}`);
-        opts.headless = false;
+            opts.args.push(`--window-size=${(_c = opts.defaultViewport) === null || _c === void 0 ? void 0 : _c.width},${(_d = opts.defaultViewport) === null || _d === void 0 ? void 0 : _d.height}`);
+        if(!opts.headless) opts.headless = true;
         const browser = yield puppeteer_1.default.launch(opts);
         // @ts-ignore
         browser.encoders = new Map();
